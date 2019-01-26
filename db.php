@@ -9,4 +9,7 @@ require "libs/rb-mysql.php";
 //    R::setup( 'mysql:host=localhost;dbname=mydatabase', 'myusername', 'mypassword' );
 R::setup( 'mysql:host=localhost;dbname=school', 'root', '' );
 
+// Нужно замораживать БД перед отправкой на продакшн! В случас с установленной заморозкой не получится установить новые поля в БД.
+R::freeze( TRUE );
+
 ?>

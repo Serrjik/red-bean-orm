@@ -47,24 +47,38 @@ echo "</pre>";*/
 
 // Получение одного курса
 // R::load() находит информацию. При этом её можно изменять
-// Найдем курс с ID = 9
-$course = R::load('courses', 9);
+// Найдем курс с ID = 10
+// $course = R::load('courses', 10);
 // echo "<pre>";
 // print_r($course);
 // echo "</pre>";
-echo "ID: ". $course->id . "<br>";
+/*echo "ID: ". $course->id . "<br>";
 echo "Название: ". $course->title . "<br>";
 echo "Кол-во уроков: ". $course->tuts . "<br>";
 echo "Уровень: ". $course->level . "<br>";
-echo "Цена: ". $course->price . "<br><hr>";
+echo "Цена: ". $course->price . "<br><hr>";*/
 
 // Изменяем значения полей
-$course->title = "React - ступень 1-я";
-$course->tuts = 20;
-$course->price = 80;
+// $course->title = "React - ступень 2-я";
+// $course->tuts = 25;
+// $course->price = 155;
+// Можно добавить новое поле при обновлении Bean'а
+// $course->students = 20;
+// При установленной R::freeze( TRUE ) вставка нового поля не сработает
+// $course->img = "<img src='react.png'>"; // не сработает при R::freeze( TRUE )
 
 // Сохраняем изменения
 // Передаём в функцию R::store() тот Bean, который записываем
-R::store( $course );
+// R::store( $course );
+
+// ----------------------
+// Удаление записи в БД
+// ----------------------
+
+// Находим нужный Bean
+$course = R::load('courses', 12);
+
+// Удаляем нужный Bean функцией trash()
+R::trash( $course );
 
 ?>
